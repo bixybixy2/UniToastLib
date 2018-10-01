@@ -63,7 +63,7 @@ function uniToast(headerID, headerTitle, headerArguments, title, body, iconImage
     if (window.Windows) {
 showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, heroImagePath, inlineImagePath)
     } else {
-        var options = {body: body, image: heroImagePath, icon: iconImagePath}
+        var options = {body: body, image: heroImagePath, /*icon: iconImagePath*/}
         var notification = new Notification (title, options)
     }
 }
