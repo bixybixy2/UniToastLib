@@ -32,7 +32,7 @@ var toastNotificationXmlTemplate =
         <binding template="ToastGeneric">
             <text hint-maxLines="1"></text>
             <text></text>
-            <image placement="" src=""/>
+            <image placement="hero" src=""/>
             <script type="text/javascript">appToastButton();</script>
         </binding>
     </visual>
