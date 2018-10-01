@@ -11,6 +11,11 @@ function showToastNotification(title, body, imagePath) {
     var images = toastXml.getElementsByTagName('image');
     images[0].setAttribute('src', imageUrl);
 
+    // 'Hero' Image
+     HeroImage = new ToastGenericHeroImage() 
+    { Source = imageUrl }
+
+
     // Set notification texts
     var textNodes = toastXml.getElementsByTagName('text');
     textNodes[0].innerText = title;
@@ -27,11 +32,23 @@ var toastNotificationXmlTemplate =
         <binding template="ToastGeneric">
             <text hint-maxLines="1"></text>
             <text></text>
-            <image placement="" src=""/>
+            <image placement="hero" src=HeroImage/>
             <script type="text/javascript">appToastButton();</script>
         </binding>
     </visual>
 </toast>`;
+
+//var toastNotificationXmlTemplate =
+//`<toast>
+//    <visual>
+//        <binding template="ToastGeneric">
+//            <text hint-maxLines="1"></text>
+//            <text></text>
+//            <image placement="" src=""/>
+//            <script type="text/javascript">appToastButton();</script>
+//        </binding>
+//    </visual>
+//</toast>`;
 
 //
 //
