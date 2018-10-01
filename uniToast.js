@@ -25,7 +25,7 @@ function showToastNotification(title, body, imagePath) {
     var toast = new Windows.UI.Notifications.ToastNotification(toastXml);
     Windows.UI.Notifications.ToastNotificationManager.createToastNotifier().show(toast);
 }
-
+ 
 var toastNotificationXmlTemplate =
 `<toast>
     <visual>
