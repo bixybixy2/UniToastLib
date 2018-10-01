@@ -41,7 +41,7 @@ function showToastNotification(headerID, headerTitle, headerArguments, title, bo
  
 var toastNotificationXmlTemplate =
 `<toast>
-    <header id="" title="" arguments="">
+    <header id="" title="" arguments=""/>
         <visual>
         <binding template="ToastGeneric">
             <text hint-maxLines="1"></text>
@@ -52,7 +52,6 @@ var toastNotificationXmlTemplate =
             <script type="text/javascript">appToastButton();</script>
         </binding>
         </visual>
-    </header>
 </toast>`;
 
 
