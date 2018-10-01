@@ -7,14 +7,13 @@ function showToastNotification(title, body, imagePath) {
     var toastXml = new Windows.Data.Xml.Dom.XmlDocument();
     toastXml.loadXml(toastNotificationXmlTemplate);
 
-    // Update the background image
-    var images = toastXml.getElementsByTagName('image');
-    images[0].setAttribute('src', imageUrl);
-
     // 'Hero' Image
-     HeroImage = new ToastGenericHeroImage() 
+    HeroImage = new ToastGenericHeroImage() 
     { Source = imageUrl }
 
+    // Update the background image
+    var images = toastXml.getElementsByTagName('image');
+    images[0].setAttribute('src', HeroImage);
 
     // Set notification texts
     var textNodes = toastXml.getElementsByTagName('text');
@@ -32,7 +31,7 @@ var toastNotificationXmlTemplate =
         <binding template="ToastGeneric">
             <text hint-maxLines="1"></text>
             <text></text>
-            <image placement="hero" src=HeroImage/>
+            <image placement="hero" src=""/>
             <script type="text/javascript">appToastButton();</script>
         </binding>
     </visual>
