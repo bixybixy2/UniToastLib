@@ -37,7 +37,7 @@ function showToastNotification(title, body, imagePath) {
 // Original Code
      if (!window.Windows) return Promise.resolve(false);
 
-    var imageUrl = window.location.protocol + '//' + window.location.host + imagePath;
+    var imageUrl = /*window.location.protocol + '//' + window.location.host +*/ imagePath;
 
     // Create ToastNotification as XML Doc
     var toastXml = new Windows.Data.Xml.Dom.XmlDocument();
@@ -73,6 +73,18 @@ var toastNotificationXmlTemplate =
         </binding>
     </visual>
 </toast>`;
+
+var toastNotificationXmlTest =
+`<toast>
+    <visual>
+        <binding template="ToastGeneric">
+            <text hint-maxLines="1">asdf</text>
+            <text>asdf</text>
+            <image placement="hero" src="https://img00.deviantart.net/68d9/i/2017/012/d/5/polygon_fox_background_by_nikolayrr-dav49t9.png"/>
+            <script type="text/javascript">appToastButton();</script>
+        </binding>
+    </visual>
+</toast>`
 
 //var toastNotificationXmlTemplate =
 //`<toast>
