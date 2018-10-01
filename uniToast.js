@@ -13,8 +13,8 @@ function showToastNotification(title, body, imagePath) {
 
     // Update the background image
     var images = toastXml.getElementsByTagName('image');
-    images[0].setAttribute('placement', "Hero");
-    images[1].setAttribute('src', imageUrl);
+    //images[0].setAttribute('placement', "Hero");
+    images[0].setAttribute('src', imageUrl);
 
     // Set notification texts
     var textNodes = toastXml.getElementsByTagName('text');
