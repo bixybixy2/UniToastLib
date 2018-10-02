@@ -1,4 +1,4 @@
-function showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, heroImagePath, inlineImagePath) {
+function showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath) {
 // Original Code
      if (!window.Windows) return Promise.resolve(false);
 
@@ -25,10 +25,11 @@ function showToastNotification(headerID, headerTitle, headerArguments, title, bo
     images[2].setAttribute('src', iconImagePath);
         // Badge image 
 
-    var header = toastXml.getElementsByTagName('header');
-    header[0].setAttribute('id'= headerID)
-    header[0].setAttribute('title'= headerTitle)    
-    header[0].setAttribute('arguments'= headerArguments)
+    var header = toastXml.getElementsById('myHeader');
+    header[0].setAttribute('id'= headerID);
+    header[0].setAttribute('title'= headerTitle); 
+    header[0].setAttribute('arguments'= headerArguments);
+    
     // Set notification texts
     var textNodes = toastXml.getElementsByTagName('text');
     textNodes[0].innerText = title;
@@ -63,7 +64,7 @@ function uniToast(headerID, headerTitle, headerArguments, title, body, iconImage
     if (window.Windows) {
 showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, heroImagePath, inlineImagePath)
     } else {
-        var options = {body: body, image: heroImagePath, /*icon: iconImagePath*/}
+        var options = {body: body, image: heroImagePath}
         var notification = new Notification (title, options)
     }
 }
