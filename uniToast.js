@@ -61,16 +61,13 @@ var toastNotificationXmlTemplate =
         </binding>
         </visual>
         <actions>
-        <action content="" activationType="" arguments=""/>
-        <action content="" activationType="" arguments=""/>
-        <action content="" activationType="" arguments=""/>
-        <action content="" activationType="" arguments=""/>
-        <action content="" activationType="" arguments=""/>
+        <action/>
+        
         </actions>
 </toast>`;
 
 
-//
+//<action content="" activationType="" arguments=""/>
 //
 //
 
