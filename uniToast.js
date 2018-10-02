@@ -25,10 +25,10 @@ function showToastNotification(headerID, headerTitle, headerArguments, title, bo
     images[2].setAttribute('src', iconImagePath);
         // Badge image 
 
-    var header = toastXml.getElementsById('header');
-    header[0].setAttribute('id'= headerID);
-    header[0].setAttribute('title'= headerTitle); 
-    header[0].setAttribute('arguments'= headerArguments);
+    var header = toastXml.getElementsByTagName('header');
+    header[0].setAttribute('id', headerID);
+    header[0].setAttribute('title', headerTitle); 
+    header[0].setAttribute('arguments', headerArguments);
     
     // Set notification texts
     var textNodes = toastXml.getElementsByTagName('text');
