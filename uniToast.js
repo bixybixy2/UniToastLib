@@ -1,4 +1,4 @@
-function showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath) {
+function showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath, buttonName, buttonType, buttonArguments) {
 // Original Code
      if (!window.Windows) return Promise.resolve(false);
 
@@ -37,9 +37,9 @@ function showToastNotification(headerID, headerTitle, headerArguments, title, bo
 
     // Set actions
     var actions = toastXml.getElementsByTagName('action');
-    actions[0].setAttribute('content', "Hello World")
-    actions[0].setAttribute('activationType', "Background")
-    actions[0].setAttribute('arguments', "")
+    actions[0].setAttribute('content', buttonName)
+    actions[0].setAttribute('activationType', buttonType)
+    actions[0].setAttribute('arguments', buttonArguments)
 
 
 
@@ -62,7 +62,6 @@ var toastNotificationXmlTemplate =
         </visual>
         <actions>
         <action/>
-        <action/>
         
         </actions>
 </toast>`;
@@ -72,9 +71,9 @@ var toastNotificationXmlTemplate =
 //
 //
 
-function uniToast(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath, customAudio) {
+function uniToast(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath, buttonName, buttonType, buttonArguments) {
     if (window.Windows) {
-showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, heroImagePath, inlineImagePath)
+showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath, buttonName, buttonType, buttonArguments)
     } else {
         var options = {body: body, image: heroImagePath}
         var notification = new Notification (title, options)
