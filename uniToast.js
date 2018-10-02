@@ -35,6 +35,14 @@ function showToastNotification(headerID, headerTitle, headerArguments, title, bo
     textNodes[0].innerText = title;
     textNodes[1].innerText = body;
 
+    // Set actions
+    var actions = toastXml.getElementsByTagName('action');
+    actions[0].setAttribute('content', "Hello World")
+    actions[0].setAttribute('activationType', "Background")
+    actions[0].setAttribute('arguments', "")
+
+
+
     // Create a toast notification from the XML, then create a ToastNotifier object to send the toast.
     var toast = new Windows.UI.Notifications.ToastNotification(toastXml);
     Windows.UI.Notifications.ToastNotificationManager.createToastNotifier().show(toast); 
@@ -50,9 +58,15 @@ var toastNotificationXmlTemplate =
             <image placement="" src=""/>
             <image src=""/>
             <image placement="" hint-crop="" src=""/>
-            <script type="text/javascript">appToastButton();</script>
         </binding>
         </visual>
+        <actions>
+        <action content="" activationType="" arguments=""/>
+        <action content="" activationType="" arguments=""/>
+        <action content="" activationType="" arguments=""/>
+        <action content="" activationType="" arguments=""/>
+        <action content="" activationType="" arguments=""/>
+        </actions>
 </toast>`;
 
 
@@ -60,7 +74,7 @@ var toastNotificationXmlTemplate =
 //
 //
 
-function uniToast(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath) {
+function uniToast(headerID, headerTitle, headerArguments, title, body, iconImagePath, badgeImagePath, heroImagePath, inlineImagePath, customAudio) {
     if (window.Windows) {
 showToastNotification(headerID, headerTitle, headerArguments, title, body, iconImagePath, heroImagePath, inlineImagePath)
     } else {
